@@ -1,0 +1,21 @@
+FROM python:3.7
+
+RUN pip install pylint
+
+COPY pip.conf /etc/pip.conf
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+COPY test_requirements.txt test_requirements.txt
+RUN pip install -r test_requirements.txt
+
+RUN mkdir stage
+
+COPY swaperator stage/swaperator
+COPY test stage/test
+COPY .pylintrc stage/.pylintrc
+
+WORKDIR stage
+
+RUN pylint `ls -d */`

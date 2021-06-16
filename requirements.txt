@@ -1,0 +1,4 @@
+logging
+setuptools
+kopf
+boto3
