@@ -115,7 +115,7 @@ spec:
      serviceAccountName: cloudwatchalarm-controller
      containers:
        - name: cloudwatchalarm
-         image: {{IMAGE PUSHED FROM STEP ABOVE}}
+         image: public.ecr.aws/j7w4t5h0/k8s-cloudwatch-alarms-controller:latest
          imagePullPolicy: Always
          ports:
            - containerPort: 8080
